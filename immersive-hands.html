@@ -191,6 +191,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     // Called when we've successfully acquired a XRSession. In response we
     // will set up the necessary session state and kick off the frame loop.
     function onSessionStarted(session) {
+      console.log("onSessionStarted");
       // This informs the 'Enter XR' button that the session has started and
       // that it should display 'Exit XR' instead.
       xrButton.setSession(session);
@@ -262,6 +263,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     // At this point the session object is no longer usable and should be
     // discarded.
     function onSessionEnded(event) {
+      console.log("onSessionEnded");
       xrButton.setSession(null);
 
       // In this simple case discard the WebGL context too, since we're not
