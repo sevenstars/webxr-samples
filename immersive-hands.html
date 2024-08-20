@@ -295,7 +295,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           console.log("onSourcesChange inputSource.targetRayMode: " + inputSource.targetRayMode);
           console.log("onSourcesChange len of inputSource.profiles: " + inputSource.profiles.length);
           if (inputSource.profiles.length > 0)
-            console.log("onSourcesChange inputSource.profiles[0]: " + inputSource.profiles[0]);
+            console.log("onSourcesChange inputSource.profiles: " + inputSource.profiles);
           if (inputSource.targetRayMode == 'tracked-pointer') {
             // Use the fetchProfile method from the motionControllers library
             // to find the appropriate glTF mesh path for this controller.
@@ -331,7 +331,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       }
       for (let inputSource of sources) {
         let hand_type = type + inputSource.handedness;
-        console.log("updateSources hand_type=" + hand_type);
+        // console.log("updateSources hand_type=" + hand_type);
         if (type == "input_") {
           let targetRayPose = frame.getPose(inputSource.targetRaySpace, refSpace);
           if (targetRayPose) {
@@ -367,7 +367,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         let offset = 0;
         if (!inputSource.hand) {
-          console.log("updateSources !inputSource.hand");
+          // console.log("updateSources !inputSource.hand");
           for (const box of boxes[hand_type]) {
             scene.removeNode(box);
           }
@@ -375,7 +375,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
           continue;
         } else {
-          console.log("updateSources inputSource.hand");
+          // console.log("updateSources inputSource.hand");
           let pose = frame.getPose(inputSource.targetRaySpace, refSpace);
           if (pose === undefined) {
             console.log("no pose");
