@@ -292,6 +292,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           else {
             console.log("onSourcesChange inputSource.hand.size=" + inputSource.hand.size);
           }
+          console.log("onSourcesChange inputSource.targetRayMode: " + inputSource.targetRayMode);
+          console.log("onSourcesChange len of inputSource.profiles: " + inputSource.profiles.length);
+          if (inputSource.profiles.length > 0)
+            console.log("onSourcesChange inputSource.profiles[0]: " + inputSource.profiles[0]);
           if (inputSource.targetRayMode == 'tracked-pointer') {
             // Use the fetchProfile method from the motionControllers library
             // to find the appropriate glTF mesh path for this controller.
@@ -300,6 +304,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
               // to device inputs you'd create a new MotionController() instance
               // here to handle the animation, but this sample will skip that
               // and only display a static mesh for simplicity.
+              console.log("onSourcesChange profile: " + profile + " assetPath: " + assetPath);
 
               scene.inputRenderer.setControllerMesh(new Gltf2Node({url: assetPath}), inputSource.handedness, inputSource.profiles[0]);
             });
